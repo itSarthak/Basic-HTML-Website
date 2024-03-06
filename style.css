@@ -1,0 +1,291 @@
+/* Universal Selector */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*PAGE SECTION*/
+
+/*Inheritance in action, since we've passed a value to the body element, it is the 
+inherited value and will get passed on to the various elements on the elements 
+inside body tag. However, it have the least priority and will be easily overwritten.
+Not all the properties get inherited but the one's related to text surely get.*/
+body {
+  color: #444444;
+  font-family: sans-serif;
+  border-top: 10px solid #1098ad;
+}
+
+/*Centering Elements*/
+.container {
+  width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/*Combining Selectors, 
+as we can see all the css tags font-family property is 
+contantly repeting(repetitive). So what we do is we select 
+all the tags where font family resides and then combine them 
+all by commas and pass the property that we want all of them 
+to have*/
+/* h1,
+h2,
+h3,
+h4,
+p,
+li {
+  font-family: sans-serif;
+  color: #444444;
+} */
+
+.main-header {
+  background-color: #f7f7f7;
+  padding: 20px 40px;
+  margin-bottom: 60px;
+  /* height: 80px; */
+}
+
+nav {
+  font-size: 18px;
+  text-align: center;
+}
+
+article {
+  margin-bottom: 60px;
+}
+
+.post-header {
+  margin-bottom: 40px;
+}
+
+aside {
+  background-color: #f7f7f7;
+  border-top: 5px solid #1098ad; /*This is what we call a shorthand property, a special kind of property.*/
+  border-bottom: 5px solid #1098ad;
+  padding: 50px 0;
+  width: 500px;
+}
+
+/*SMALLER ELEMENTS*/
+
+h1,
+h2,
+h3 {
+  color: #1098ad;
+}
+
+h1 {
+  font-size: 26px;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+h3 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+h4 {
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+p {
+  font-size: 22px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+ul,
+ol {
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+
+li {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+li:last-child {
+  margin-bottom: 0;
+}
+
+/*Descendant Selector, in the code below p element is 
+the child element of the footer. So all the paragraph tags 
+in the footer will be applied the following style as mentioned 
+in the code */
+
+/* footer p {
+  font-size: 16px;
+} */
+
+/* article header p {
+  font-style: italic;
+} */
+
+/*Now that we have an id tag, we can use it in out css file by an hash function*/
+#author {
+  font-style: italic;
+  font-size: 18px;
+}
+
+#copyright {
+  font-size: 16px;
+}
+
+/*To edit the class we uee the dot operator*/
+.related-author {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.related-posts-list {
+  list-style: none;
+}
+
+/* .first-li {
+  font-weight: bold;
+} */
+
+li:first-child {
+  /*This :first-child is a pseudo class that identifies the first li element automatically from the list*/
+  font-weight: bold;
+}
+
+li:last-child {
+  font-style: italic;
+}
+
+/*Selecting a particular element in the list, we can use nth-child() pseudo classa and pass the index of the element or we can also add odd, even etc.*/
+/* li:nth-child(odd) { 
+  color: red;
+} */
+
+/*Misconception: This won't work*/
+/*
+article p:first-child {
+  color:red
+}
+*/
+
+/*Styling links and hyper links*/
+a:link {
+  color: #1098ad;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #1098ad;
+}
+
+a:hover {
+  color: orangered;
+  font-weight: bold;
+  text-decoration: underline orangered;
+}
+
+a:active {
+  background-color: black;
+  font-style: italic;
+}
+/*These pseudo codes are defined in this exact order 'LVHA'*/
+
+/*When there are multiple elements affecting teh same element then CSS resolves that conflict by assesing ehich one have more priority
+In CSS, ID(#) selectors have the most priority and if there are multiple of those tyhen the last selector in the code applies.
+Class(.) have the second most priority 
+Element Selector(p, div, li etc.) have the third most priority
+Universal Selector(*) have the lest priority out of them all*/
+
+/*Resolving Conflicts*/
+
+/* #copyright {
+  color: red;
+}
+
+.copyright {
+  color: blue;
+}
+
+.text {
+  color: yellow;
+}
+
+footer p {
+  color: green;
+} */
+
+.post-img {
+  width: 100%;
+  height: auto;
+}
+
+/*COnverting liline elements into box level elements*/
+
+nav a:link {
+  /*background-color: orangered;
+  margin: 20px;*/ /*Since they're inline boxes so when we add margin, no vertical space is added instead horizontal space isadded only*/
+  /* padding: 20px;
+
+  display: block; */
+
+  margin-right: 30px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+nav a:link:last-child {
+  margin-right: 0;
+}
+
+button {
+  font-size: 22px;
+  padding: 20px;
+  cursor: pointer;
+
+  position: absolute; /*Adding a button relative to the body tag*/
+  bottom: 50px;
+  right: 50px;
+}
+
+/*Concept of pseudo elements. We select them by ::*/
+
+h1::first-letter {
+  font-style: normal;
+  margin-right: 5px;
+}
+
+/*Concept of adjacent sibling, that is right next to the tag sibling tag*/
+/*Here h3 is the main sibling and we add + symbol to select the adjacent sibling*/
+h3 + p::first-line {
+  /* color: red; */
+}
+
+h2 {
+  /* background-color: orange; */
+  position: relative;
+}
+
+/*After Psedo element*/
+
+h2::after {
+  content: "TOP";
+  background-color: #ffe70e;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 5px 10px;
+  position: absolute;
+  top: -10px;
+  right: -25px;
+}
