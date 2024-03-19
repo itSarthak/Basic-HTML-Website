@@ -20,7 +20,7 @@ body {
 
 /*Centering Elements*/
 .container {
-  width: 1200px;
+  width: 1300px;
   margin: 0 auto;
   position: relative;
 }
@@ -44,17 +44,17 @@ li {
 .main-header {
   background-color: #f7f7f7;
   padding: 20px 40px;
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
   /* height: 80px; */
 }
 
 nav {
   font-size: 18px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 article {
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
 }
 
 .post-header {
@@ -146,9 +146,9 @@ in the code */
 
 /*To edit the class we uee the dot operator*/
 .related-author {
-  font-size: 14px;
-  font-weight: normal;
-  font-style: italic;
+  font-size: 18px;
+  font-weight: bold;
+  /* font-style: italic; */
 }
 
 .related-posts-list {
@@ -280,10 +280,10 @@ h2 {
 
 /*After Psedo element*/
 
-h2::after {
+h2::before {
   content: "TOP";
   background-color: #ffe70e;
-  color: #000;
+  color: #444;
   font-size: 16px;
   font-weight: bold;
   display: inline-block;
@@ -373,7 +373,9 @@ footer {
   margin-bottom: 5px;
 }
 
-.row {
+/* FLEXBOX LAYOUT */
+
+/* .row {
   display: flex;
   align-items: flex-start;
   gap: 75px;
@@ -387,4 +389,27 @@ article {
 
 aside {
   flex: 0 0 300px;
+} */
+
+/* CSS GRID ELEMENT */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  column-gap: 75px;
+  row-gap: 60px;
+  align-items: start;
+}
+
+.main-header {
+  grid-column: 1 / -1;
+}
+
+article {
+}
+
+aside {
+}
+
+footer {
+  grid-column: 1 / -1;
 }
